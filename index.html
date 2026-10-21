@@ -8,7 +8,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      /* Background imej bangunan */
       background-image: url('profile company growsmart (2).png');
       background-size: cover;
       background-position: top center;
@@ -378,8 +377,8 @@
         infoCentre = 'Others: ' + (document.getElementById('infoLain').value || '');
       }
 
-      // Web App URL Google Apps Script Anda
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbwzFG5ZrcASU7bH_-mo3ujI9VUsFbZO9PChRxSu-PJxSKcydi0Ysa_b9VjJ98C2rawfnQ/exec';
+      // Web App URL Google Apps Script Baharu Anda
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbxBfrOWnN_KM5V5Qk-l1HLJO2phs7OBjxRzjxTgoJX0JFgv6Wmlm50hB2a025gyJ0pA2A/exec';
 
       // 1. Hantar Data Automatik ke Google Sheets
       fetch(scriptURL, {
@@ -413,25 +412,25 @@
       const mesej = `*VISITOR REGISTRATION FORM (VRF)*
 ----------------------------------
 *1. PARENT / GUARDIAN INFORMATION*
-• Name: ${namaPenjaga}
-• Relationship: ${hubungan}
-• Address: ${alamat}
-• Father: ${pekerjaanBapa} (${telBapa})
-• Mother: ${pekerjaanIbu} (${telIbu})
+- Name: ${namaPenjaga}
+- Relationship: ${hubungan}
+- Address: ${alamat}
+- Father: ${pekerjaanBapa} (${telBapa})
+- Mother: ${pekerjaanIbu} (${telIbu})
 
 *2. CHILD INFORMATION*
-• Name: ${namaAnak}
-• Age: ${umurAnak}
-• DOB: ${tarikhLahirAnak}
-• School: ${sekolahTerkini}
-• Symptom: ${simptom}
-• Diagnosis: ${diagnos}
-• Therapy: ${pergiTerapi} (Where: ${tempatTerapi})
-• OKU Card: ${kadOku}
+- Name: ${namaAnak}
+- Age: ${umurAnak}
+- DOB: ${tarikhLahirAnak}
+- School: ${sekolahTerkini}
+- Symptom: ${simptom}
+- Diagnosis: ${diagnos}
+- Therapy: ${pergiTerapi} (Where: ${tempatTerapi})
+- OKU Card: ${kadOku}
 
 *3. PACKAGE & SOURCE*
-• Package Interested: ${pakej}
-• Heard From: ${infoCentre}
+- Package Interested: ${pakej}
+- Heard From: ${infoCentre}
 ----------------------------------`;
 
       // 2. WhatsApp Submit
