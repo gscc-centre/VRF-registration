@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visitor Registration Form (VRF) / Borang Pendaftaran Pelawat</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      /* Background imej bangunan */
+      background-image: url('profile company growsmart (2).png');
+      background-size: cover;
+      background-position: top center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      min-height: 100vh;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+  </style>
+</head>
+<body class="py-10 px-4 sm:px-6 lg:px-8">
+
+  <!-- Container utama borang -->
+  <div class="max-w-3xl mx-auto bg-white/95 backdrop-blur-md rounded-3xl shadow-2xl border-4 border-yellow-400 overflow-hidden my-6">
+    
+    <!-- DESIGN UTAMA PALING ATAS: Gambar header.png -->
+    <div class="w-full bg-white leading-none">
+      <img src="header.png" alt="Header Visitor Registration Form" class="w-full h-auto object-contain block">
+    </div>
+
+    <!-- Form Content -->
+    <form id="registrationForm" onsubmit="handleSubmit(event)" class="p-6 md:p-8 space-y-8">
+
+      <!-- ================= 1. PARENT / GUARDIAN INFORMATION ================= -->
+      <div class="space-y-5">
+        <div class="bg-yellow-100 border-l-8 border-yellow-500 p-4 rounded-r-xl shadow-sm flex items-center gap-3">
+          <span class="text-2xl">👨‍👩‍👧</span>
+          <div>
+            <h2 class="text-lg md:text-xl font-bold text-gray-800 uppercase">1. PARENT / GUARDIAN INFORMATION</h2>
+            <p class="text-xs md:text-sm text-gray-600 font-medium">MAKLUMAT IBU BAPA / PENJAGA</p>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div>
+            <label class="block text-gray-800 font-bold">
+              Parent / Guardian Name <span class="text-red-500">*</span>
+              <span class="block text-xs text-gray-500 font-normal">(Nama Ibu / Bapa / Penjaga)</span>
+            </label>
+            <input type="text" id="namaPenjaga" required placeholder="Enter full name / Masukkan nama penuh"
+              class="mt-1 w-full p-3 rounded-xl border-2 border-gray-200 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-300 outline-none transition shadow-sm">
+          </div>
+
+          <div>
+            <label class="block text-gray-800 font-bold">
+              Relationship <span class="text-red-500">*</span>
+              <span class="block text-xs text-gray-500 font-normal">(Hubungan)</span>
+            </label>
+            <input type="text" id="hubungan" required placeholder="e.g. Father / Mother / Guardian (Contoh: Bapa / Ibu)"
+              class="mt-1 w-full p-3 rounded-xl border-2 border-gray-200 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-300 outline-none transition shadow-sm">
+          </div>
+
+          <div>
+            <label class="block text-gray-800 font-bold">
+              Home Address <span class="text-red-500">*</span>
+              <span class="block text-xs text-gray-500 font-normal">(Alamat Tempat Tinggal)</span>
+            </label>
+            <textarea id="alamat" rows="2" required placeholder="Enter complete residential address / Masukkan alamat kediaman lengkap"
+              class="mt-1 w-full p-3 rounded-xl border-2 border-gray-200 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-300 outline-none transition shadow-sm"></textarea>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-gray-800 font-bold">
+                Father's Occupation
+                <span class="block text-xs text-gray-500 font-normal">(Pekerjaan Bapa)</span>
+              </label>
+              <input type="text" id="pekerjaanBapa" placeholder="Enter father's occupation"
+                class="mt-1 w-full p-3 rounded-xl border-2 border-gray-200 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-300 outline-none transition shadow-sm">
+            </div>
+            <div>
+              <label class="block text-gray-800 font-bold">
+                Father's Phone No.
+                <span class="block text-xs text-gray-500 font-normal">(No. Telefon Bapa)</span>
+              </label>
+              <input type="tel" id="telBapa" placeholder="e.g. 0123456789"
+                class="mt-1 w-full p-3 rounded-xl border-2 border-gray-200 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-300 outline-none transition shadow-sm">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-gray-800 font-bold">
+                Mother's Occupation
+                <span class="block text-xs text-gray-500 font-normal">(Pekerjaan Ibu)</span>
+              </label>
+              <input type="text" id="pekerjaanIbu" placeholder="Enter mother's occupation"
+                class="mt-1 w-full p-3 rounded-xl border-2 border-gray-200 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-300 outline-none transition shadow-sm">
+            </div>
+            <div>
+              <label class="block text-gray-800 font-bold">
+                Mother's Phone No.
+                <span class="block text-xs text-gray-500 font-normal">(No. Telefon Ibu)</span>
+              </label>
+              <input type="tel" id="telIbu" placeholder="e.g. 0123456789"
+                class="mt-1 w-full p-3 rounded-xl border-2 border-gray-200 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-300 outline-none transition shadow-sm">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= 2. CHILD INFORMATION ================= -->
+      <div class="space-y-5">
+        <div class="bg-yellow-100 border-l-8 border-yellow-500 p-4 rounded-r-xl shadow-sm flex items-center gap-3">
+          <span class="text-2xl">👶</span>
+          <div>
+            <h2 class="text-lg md:text-xl font-bold text-gray-800 uppercase">2. CHILD INFORMATION</h2>
+            <p class="text-xs md:text-sm text-gray-600 font-medium">MAKLUMAT ANAK</p>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div>
+            <label class="block text-gray-800 font-bold">
+              Child Name <span class="text-red-500">*</span>
+              <span class="block text-xs text-gray-500 font-normal">(Nama Anak)</span>
+            </label>
+            <input type="text" id="namaAnak" required placeholder="Enter child's full name / Masukkan nama penuh anak"
+              class="mt-1 w-full p-3 rounded-xl border-2 border-gray-200 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-300 outline-none transition shadow-sm">
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-gray-800 font-bold">
+                Age <span class="text-red-500">*</span>
+                <span class="block text-xs text-gray-500 font-normal">(Umur)</span>
+              </label>
+              <input type="text" id="umurAnak" required placeholder="e.g. 5 Years Old"
+                class="mt-1 w-full p-3 rounded-xl border-2 border-gray-200 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-300 outline-none transition shadow-sm">
+            </div>
+            <div>
+              <label class="block text-gray-800 font-bold">
+                Date of Birth <span class="text-red-500">*</span>
+                <span class="block text-xs text-gray-500 font-normal">(Tarikh Lahir)</span>
+              </label>
+              <input type="date" id="tarikhLahirAnak" required
+                class="mt-1 w-full p-3 rounded-xl border-2 border-gray-200 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-300 outline-none transition shadow-sm">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-gray-800 font-bold">
+              Current School / Kindergarten
+              <span class="block text-xs text-gray-500 font-normal">(Sekolah / Tadika Terkini)</span>
+            </label>
+            <input type="text" id="sekolahTerkini" placeholder="Enter current school or kindergarten name"
+              class="mt-1 w-full p-3 rounded-xl border-2 border-gray-200 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-300 outline-none transition shadow-sm">
+          </div>
+
+          <!-- DROP DOWN: SYMPTOM -->
+          <div>
+            <label class="block text-gray-800 font-bold">
+              SYMPTOM (OPTION)
+              <span class="block text-xs text-gray-500 font-normal">(Simptom - Pilihan)</span>
+            </label>
+            <select id="simptom" onchange="toggleOthersInput('simptom', 'simptomLainBox')"
+              class="mt-1 w-full p-3 rounded-xl border-2 border-gray-200 bg-white focus:border-yellow-500 focus:ring-2 focus:ring-yellow-300 outline-none transition shadow-sm">
+              <option value="" disabled selected>-- Select Symptom / Sila Pilih Simptom --</option>
+              <option value="Limited eye contact">Limited eye contact</option>
+              <option value="Focus issue">Focus issue</option>
+              <option value="Delayed speech">Delayed speech</option>
+              <option value="Social communication">Social communication</option>
+              <option value="Social interaction">Social interaction</option>
+              <option value="Challenging behaviour">Challenging behaviour</option>
+              <option value="Sensory differences">Sensory differences</option>
+              <option value="Hyperactive">Hyperactive</option>
+              <option value="OTHERS">OTHERS (Lain-lain)</option>
+            </select>
+          </div>
+
+          <!-- INPUT TAMBAHAN JIKA SYMPTOM = OTHERS -->
+          <div id="simptomLainBox" class="hidden">
+            <label class="block text-gray-800 font-bold">
+              Please state symptom (Others)
+              <span class="block text-xs text-gray-500 font-normal">(Sila nyatakan simptom lain)</span>
+            </label>
+            <input type="text" id="simptomLain" placeholder="Specify symptom"
+              class="mt-1 w-full p-3 rounded-xl border-2 border-gray-200 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-300 outline-none transition shadow-sm">
+          </div>
+
+          <!-- DROP DOWN: DIAGNOSIS -->
+          <div>
+            <label class="block text-gray-800 font-bold">
+              DIAGNOSIS (OPTION)
+              <span class="block text-xs text-gray-500 font-normal">(Diagnos - Pilihan)</span>
+            </label>
+            <select id="diagnos" onchange="toggleOthersInput('diagnos', 'diagnosLainBox')"
+              class="mt-1 w-full p-3 rounded-xl border-2 border-gray-200 bg-white focus:border-yellow-500 focus:ring-2 focus:ring-yellow-300 outline-none transition shadow-sm">
+              <option value="" disabled selected>-- Select Diagnosis / Sila Pilih Diagnos --</option>
+              <option value="ADHD">ADHD</option>
+              <option value="DYSLEXIA">DYSLEXIA</option>
+              <option value="GDD">GDD</option>
+              <option value="SPEECH DELAY">SPEECH DELAY</option>
+              <option value="DOWN SYNDROME">DOWN SYNDROME</option>
+              <option value="AUTISM">AUTISM</option>
+              <option value="AUTISM + ADHD">AUTISM + ADHD</option>
+              <option value="AUTISM + SPEECH DELAY">AUTISM + SPEECH DELAY</option>
+              <option value="AUTISM + ADHD + SPEECH DELAY">AUTISM + ADHD + SPEECH DELAY</option>
+              <option value="OTHERS">OTHERS (Lain-lain)</option>
+            </select>
+          </div>
+
+          <!-- INPUT TAMBAHAN JIKA DIAGNOS = OTHERS -->
+          <div id="diagnosLainBox" class="hidden">
+            <label class="block text-gray-800 font-bold">
+              Please state diagnosis (Others)
+              <span class="block text-xs text-gray-500 font-normal">(Sila nyatakan diagnos)</span>
+            </label>
+            <input type="text" id="diagnosLain" placeholder="Specify diagnosis"
+              class="mt-1 w-full p-3 rounded-xl border-2 border-gray-200 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-300 outline-none transition shadow-sm">
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-gray-800 font-bold">
+                ATTEND THERAPY?
+                <span class="block text-xs text-gray-500 font-normal">(Pergi Terapi?)</span>
+              </label>
+              <select id="pergiTerapi" class="mt-1 w-full p-3 rounded-xl border-2 border-gray-200 bg-white focus:border-yellow-500 focus:ring-2 focus:ring-yellow-300 outline-none transition shadow-sm">
+                <option value="NO / TIDAK">NO / TIDAK</option>
+                <option value="YES / YA">YES / YA</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-gray-800 font-bold">
+                OKU CARD
+                <span class="block text-xs text-gray-500 font-normal">(Kad OKU)</span>
+              </label>
+              <select id="kadOku" class="mt-1 w-full p-3 rounded-xl border-2 border-gray-200 bg-white focus:border-yellow-500 focus:ring-2 focus:ring-yellow-300 outline-none transition shadow-sm">
+                <option value="NO / TIADA">NO / TIADA</option>
+                <option value="YES / ADA">YES / ADA</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-gray-800 font-bold">
+              WHERE? (IF YES)
+              <span class="block text-xs text-gray-500 font-normal">(Terapi Di Mana - Jika Ya)</span>
+            </label>
+            <input type="text" id="tempatTerapi" placeholder="Specify therapy center or location"
+              class="mt-1 w-full p-3 rounded-xl border-2 border-gray-200 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-300 outline-none transition shadow-sm">
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= 3. PACKAGE & SOURCE INFORMATION ================= -->
+      <div class="space-y-5">
+        <div class="bg-yellow-100 border-l-8 border-yellow-500 p-4 rounded-r-xl shadow-sm flex items-center gap-3">
+          <span class="text-2xl">📋</span>
+          <div>
+            <h2 class="text-lg md:text-xl font-bold text-gray-800 uppercase">3. PACKAGE & SOURCE INFORMATION</h2>
+            <p class="text-xs md:text-sm text-gray-600 font-medium">PAKEJ & MAKLUMAT INFO</p>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <!-- DROP DOWN: INTERESTED PACKAGE -->
+          <div>
+            <label class="block text-gray-800 font-bold">
+              INTERESTED PACKAGE (OPTION) <span class="text-red-500">*</span>
+              <span class="block text-xs text-gray-500 font-normal">(Pakej Berminat - Pilihan)</span>
+            </label>
+            <select id="pakej" required class="mt-1 w-full p-3 rounded-xl border-2 border-gray-200 bg-white focus:border-yellow-500 focus:ring-2 focus:ring-yellow-300 outline-none transition shadow-sm">
+              <option value="" disabled selected>-- Select Package / Sila Pilih Pakej --</option>
+              <option value="DAYCARE HALF-DAY">DAYCARE HALF-DAY</option>
+              <option value="DAYCARE FULL-DAY">DAYCARE FULL-DAY</option>
+              <option value="DAYCARE PER-DAY">DAYCARE PER-DAY</option>
+              <option value="PROGRAM THERAPY (OT)">PROGRAM THERAPY (OT)</option>
+              <option value="PROGRAM TISO">PROGRAM TISO</option>
+              <option value="PROGRAM GSP">PROGRAM GSP</option>
+              <option value="PROGRAM 5M">PROGRAM 5M</option>
+              <option value="PROGRAM MESSY PLAY">PROGRAM MESSY PLAY</option>
+            </select>
+          </div>
+
+          <!-- DROP DOWN: HOW DID YOU HEAR ABOUT OUR CENTRE? -->
+          <div>
+            <label class="block text-gray-800 font-bold">
+              How did you hear about our centre? <span class="text-red-500">*</span>
+              <span class="block text-xs text-gray-500 font-normal">(Tahu info centre dari mana?)</span>
+            </label>
+            <select id="infoCentre" required onchange="toggleOthersInput('infoCentre', 'infoLainBox')"
+              class="mt-1 w-full p-3 rounded-xl border-2 border-gray-200 bg-white focus:border-yellow-500 focus:ring-2 focus:ring-yellow-300 outline-none transition shadow-sm">
+              <option value="" disabled selected>-- Select Source / Sila Pilih Sumber --</option>
+              <option value="Facebook">Facebook</option>
+              <option value="TikTok">TikTok</option>
+              <option value="Instagram">Instagram</option>
+              <option value="Google Search">Google Search</option>
+              <option value="Friends / Family Referral">Friends / Family Referral</option>
+              <option value="Word of Mouth">Word of Mouth</option>
+              <option value="Banner / Signboard">Banner / Signboard</option>
+              <option value="Walk-in">Walk-in</option>
+              <option value="Others">Others (Lain-lain)</option>
+            </select>
+          </div>
+
+          <!-- INPUT TAMBAHAN JIKA INFO = OTHERS -->
+          <div id="infoLainBox" class="hidden">
+            <label class="block text-gray-800 font-bold">
+              Please state source (Others)
+              <span class="block text-xs text-gray-500 font-normal">(Sila nyatakan sumber lain)</span>
+            </label>
+            <input type="text" id="infoLain" placeholder="Specify source"
+              class="mt-1 w-full p-3 rounded-xl border-2 border-gray-200 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-300 outline-none transition shadow-sm">
+          </div>
+        </div>
+      </div>
+
+      <!-- BUTTON SUBMIT -->
+      <div class="pt-6 text-center">
+        <button type="submit"
+          class="w-full py-4 px-8 bg-yellow-400 hover:bg-yellow-500 text-red-800 font-black text-lg md:text-xl rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-0.5 transition duration-200 uppercase tracking-wider flex items-center justify-center gap-3">
+          <span>📲</span>
+          <span>SUBMIT (DIRECT TO WA & EMAIL)</span>
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+  <script>
+    function toggleOthersInput(selectId, boxId) {
+      const selectVal = document.getElementById(selectId).value;
+      const box = document.getElementById(boxId);
+      if (selectVal === 'OTHERS' || selectVal === 'Others') {
+        box.classList.remove('hidden');
+      } else {
+        box.classList.add('hidden');
+      }
+    }
+
+    function handleSubmit(e) {
+      e.preventDefault();
+
+      const namaPenjaga = document.getElementById('namaPenjaga').value;
+      const hubungan = document.getElementById('hubungan').value;
+      const alamat = document.getElementById('alamat').value;
+      const pekerjaanBapa = document.getElementById('pekerjaanBapa').value || '-';
+      const telBapa = document.getElementById('telBapa').value || '-';
+      const pekerjaanIbu = document.getElementById('pekerjaanIbu').value || '-';
+      const telIbu = document.getElementById('telIbu').value || '-';
+      
+      const namaAnak = document.getElementById('namaAnak').value;
+      const umurAnak = document.getElementById('umurAnak').value;
+      const tarikhLahirAnak = document.getElementById('tarikhLahirAnak').value;
+      const sekolahTerkini = document.getElementById('sekolahTerkini').value || '-';
+      
+      let simptom = document.getElementById('simptom').value || '-';
+      if(simptom === 'OTHERS') {
+        simptom = 'OTHERS: ' + (document.getElementById('simptomLain').value || '');
+      }
+
+      let diagnos = document.getElementById('diagnos').value || '-';
+      if(diagnos === 'OTHERS') {
+        diagnos = 'OTHERS: ' + (document.getElementById('diagnosLain').value || '');
+      }
+      
+      const pergiTerapi = document.getElementById('pergiTerapi').value;
+      const tempatTerapi = document.getElementById('tempatTerapi').value || '-';
+      const kadOku = document.getElementById('kadOku').value;
+      
+      const pakej = document.getElementById('pakej').value;
+      
+      let infoCentre = document.getElementById('infoCentre').value || '-';
+      if(infoCentre === 'Others') {
+        infoCentre = 'Others: ' + (document.getElementById('infoLain').value || '');
+      }
+
+      // Web App URL Google Apps Script Anda
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbwzFG5ZrcASU7bH_-mo3ujI9VUsFbZO9PChRxSu-PJxSKcydi0Ysa_b9VjJ98C2rawfnQ/exec';
+
+      // 1. Hantar Data Automatik ke Google Sheets
+      fetch(scriptURL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          namaPenjaga: namaPenjaga,
+          hubungan: hubungan,
+          alamat: alamat,
+          pekerjaanBapa: pekerjaanBapa,
+          telBapa: telBapa,
+          pekerjaanIbu: pekerjaanIbu,
+          telIbu: telIbu,
+          namaAnak: namaAnak,
+          umurAnak: umurAnak,
+          tarikhLahirAnak: tarikhLahirAnak,
+          sekolahTerkini: sekolahTerkini,
+          simptom: simptom,
+          diagnos: diagnos,
+          pergiTerapi: pergiTerapi,
+          tempatTerapi: tempatTerapi,
+          kadOku: kadOku,
+          pakej: pakej,
+          infoCentre: infoCentre
+        })
+      });
+
+      const mesej = `*VISITOR REGISTRATION FORM (VRF)*
+----------------------------------
+*1. PARENT / GUARDIAN INFORMATION*
+• Name: ${namaPenjaga}
+• Relationship: ${hubungan}
+• Address: ${alamat}
+• Father: ${pekerjaanBapa} (${telBapa})
+• Mother: ${pekerjaanIbu} (${telIbu})
+
+*2. CHILD INFORMATION*
+• Name: ${namaAnak}
+• Age: ${umurAnak}
+• DOB: ${tarikhLahirAnak}
+• School: ${sekolahTerkini}
+• Symptom: ${simptom}
+• Diagnosis: ${diagnos}
+• Therapy: ${pergiTerapi} (Where: ${tempatTerapi})
+• OKU Card: ${kadOku}
+
+*3. PACKAGE & SOURCE*
+• Package Interested: ${pakej}
+• Heard From: ${infoCentre}
+----------------------------------`;
+
+      // 2. WhatsApp Submit
+      const phoneNo = "60123422557"; 
+      const waUrl = `https://wa.me/${phoneNo}?text=${encodeURIComponent(mesej)}`;
+      window.open(waUrl, '_blank');
+
+      // 3. Email Submit (Ikon Bintang Kuning ⭐)
+      const emailTo = "tsc.skudai@gmail.com";
+      const subject = `⭐ VRF Registration - ${namaAnak} (${namaPenjaga})`;
+      const mailtoUrl = `mailto:${emailTo}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(mesej)}`;
+      
+      setTimeout(() => {
+        window.location.href = mailtoUrl;
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
