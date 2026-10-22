@@ -377,10 +377,10 @@
         infoCentre = 'Others: ' + (document.getElementById('infoLain').value || '');
       }
 
-      // Web App URL Google Apps Script Baharu Anda
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbxBfrOWnN_KM5V5Qk-l1HLJO2phs7OBjxRzjxTgoJX0JFgv6Wmlm50hB2a025gyJ0pA2A/exec';
+      // Web App URL Google Apps Script Terkini Anda
+      const scriptURL = 'https://script.google.com/macros/s/AKfycby6AuTW3DoYHrW_sgptdyLfylnjq_JeNPgqQky-Ca-rTJBTZvo2ZjTb2l7SgKiJE6jjFQ/exec';
 
-      // 1. Hantar Data Automatik ke Google Sheets
+      // 1. Hantar Data Automatik ke Google Sheets & Emel menerusi Apps Script
       fetch(scriptURL, {
         method: 'POST',
         mode: 'no-cors',
@@ -437,15 +437,6 @@
       const phoneNo = "60123422557"; 
       const waUrl = `https://wa.me/${phoneNo}?text=${encodeURIComponent(mesej)}`;
       window.open(waUrl, '_blank');
-
-      // 3. Email Submit (Ikon Bintang Kuning ⭐)
-      const emailTo = "tsc.skudai@gmail.com";
-      const subject = `⭐ VRF Registration - ${namaAnak} (${namaPenjaga})`;
-      const mailtoUrl = `mailto:${emailTo}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(mesej)}`;
-      
-      setTimeout(() => {
-        window.location.href = mailtoUrl;
-      }, 1000);
     }
   </script>
 </body>
